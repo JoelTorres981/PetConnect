@@ -1,0 +1,55 @@
+/* Importacion de fuentes de letra */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500;700;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Estilos de letra */
+  --font-lato: "Lato", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+
+  /* Colores PetConnect */
+  --color-base: #fffaf4;
+  /* Fondo crema principal */
+  --color-primary: #b19671;
+  /* Dorado/Café principal */
+  --color-primary-hover: #d9b58b;
+  /* Dorado claro */
+  --color-primary-light: #f6dcbf;
+  /* Tono más claro del dorado */
+  --color-primary-lighter: #fff7e0;
+  /* Tono pastel crema */
+  --color-secondary: #675b4c;
+  /* Café oscuro (Footer y textos) */
+  --color-accent: #393832a3;
+  /* Transparente oscuro (Botón hero) */
+  --color-error: #ef4444;
+  /* Rojo para mensajes de error */
+
+  /* Animaciones personalizadas */
+  --animate-fade-in: fade-in 0.2s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* Variante dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Estilos base globales */
+body {
+  font-family: var(--font-lato);
+  background-color: var(--color-base);
+}
+
+html {
+  scroll-behavior: smooth;
+}
