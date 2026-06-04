@@ -273,7 +273,7 @@ const Dashboard = () => {
                 {/* FOOTER */}
                 <div className='bg-primary/80 h-12'>
                     <p className='text-center text-slate-100 leading-[2.9rem] text-sm'>
-                        © {new Date().getFullYear()} PetConnect. <span className='font-bold'>All rights reserved.</span>
+                        © {new Date().getFullYear()} PetConnect. <span className='font-bold'>Todos los derechos reservados.</span>
                     </p>
                 </div>
             </div>
