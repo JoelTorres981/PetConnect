@@ -34,8 +34,6 @@ const Reset = () => {
     return (
         <div className="relative h-screen">
 
-            <ToastContainer />
-
             {/* Overlay suave para mejorar contraste (solo fondo) */}
             <div className="absolute inset-0 bg-black/30 z-0" aria-hidden="true" />
 
