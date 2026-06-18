@@ -241,11 +241,8 @@ export const CompromisosSanitarios = () => {
 
             // Cargar compromisos
             const resCompromisos = await axios.get(`${API}/compromisos-sanitarios/listar`, getAuthHeaders());
-            if (Array.isArray(resCompromisos.data)) {
-                setCompromisos(resCompromisos.data);
-            } else {
-                setCompromisos([]); // El backend devuelve un mensaje de error 500 en lugar de array vacío (visto en el controller), lo atrapamos en el catch
-            }
+            const listComp = resCompromisos.data?.compromisos || (Array.isArray(resCompromisos.data) ? resCompromisos.data : []);
+            setCompromisos(listComp);
         } catch (error) {
             // Si el backend lanza error (como el 500 cuando está vacío), seteamos el array vacío
             setCompromisos([]);

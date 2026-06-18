@@ -65,8 +65,9 @@ const NotificationBell = () => {
                     // Cargar Compromisos Sanitarios
                     try {
                         const resComp = await axios.get(`${API}/compromisos-sanitarios/listar`, getAuthHeaders())
-                        if (Array.isArray(resComp.data)) {
-                            resComp.data.forEach(c => {
+                        const listComp = resComp.data?.compromisos || (Array.isArray(resComp.data) ? resComp.data : [])
+                        if (Array.isArray(listComp)) {
+                            listComp.forEach(c => {
                                 if (Array.isArray(c.recordatorios_enviados) && c.recordatorios_enviados.length > 0) {
                                     c.recordatorios_enviados.forEach(d => {
                                         const labelMap = { 7: '7 días antes', 3: '3 días antes', 0: 'El mismo día' }
