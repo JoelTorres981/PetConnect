@@ -49,6 +49,10 @@ const NotificationBell = () => {
             } catch (e) {
                 console.error('Error al inicializar localStorage de notificaciones:', e)
             }
+        } else {
+            // Limpiar notificaciones si no hay usuario autenticado (evita ver notificaciones del usuario anterior)
+            setNotifications([])
+            setReadNotifIds([])
         }
     }, [user?._id])
 
