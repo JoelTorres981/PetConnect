@@ -97,10 +97,13 @@ export const Register = () => {
                                         if (!value) return true;
                                         const fecha = new Date(value);
                                         const hoy = new Date();
+                                        const hace16 = new Date();
+                                        hace16.setFullYear(hoy.getFullYear() - 16);
                                         const hace100 = new Date();
                                         hace100.setFullYear(hoy.getFullYear() - 100);
                                         if (fecha > hoy) return "La fecha de nacimiento no puede ser en el futuro.";
                                         if (fecha < hace100) return "La fecha de nacimiento no puede ser mayor a 100 años.";
+                                        if (fecha > hace16) return "Debes tener al menos 16 años para registrarte.";
                                         return true;
                                     }
                                 })}

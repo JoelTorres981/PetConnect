@@ -30,7 +30,7 @@ const ModalEditarPerfil = ({ user, onClose, onSuccess }) => {
 
     const onSubmit = async (data) => {
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/auth/perfil/${user._id}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}/auth/perfil`;
             await axios.patch(url, data, getAuthHeaders());
             toast.success("Perfil actualizado correctamente");
             onSuccess();
@@ -155,7 +155,7 @@ const ModalCambiarPassword = ({ user, onClose }) => {
 
     const onSubmit = async (data) => {
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/auth/actualizar-password/${user._id}`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}/auth/actualizar-password`;
             // Enviamos solo los campos que espera el backend: passwordactual, passwordnuevo
             const payload = { passwordactual: data.passwordactual, passwordnuevo: data.passwordnuevo };
             await axios.put(url, payload, getAuthHeaders());
@@ -287,7 +287,7 @@ const ModalCambiarFoto = ({ user, onClose, onSuccess }) => {
         try {
             const API = import.meta.env.VITE_BACKEND_URL;
             await axios.patch(
-                `${API}/auth/perfil-foto/${user._id}`,
+                `${API}/auth/perfil-foto`,
                 { imagen: base64 },
                 getAuthHeaders()
             );

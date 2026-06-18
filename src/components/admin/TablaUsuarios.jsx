@@ -48,6 +48,32 @@ const ModalRegistrarUsuario = ({ onClose, onSuccess }) => {
           {errors.telefono && <p className={errCls}>{errors.telefono.message}</p>}
         </div>
         <div>
+          <label className={labelCls}>Fecha de Nacimiento</label>
+          <input
+            type="date"
+            min={(() => { const d = new Date(); d.setFullYear(d.getFullYear() - 100); return d.toISOString().split('T')[0]; })()}
+            max={new Date().toISOString().split('T')[0]}
+            className={inputCls}
+            {...register("fechaNacimiento", {
+              required: "La fecha de nacimiento es obligatoria",
+              validate: value => {
+                if (!value) return true;
+                const fecha = new Date(value);
+                const hoy = new Date();
+                const hace16 = new Date();
+                hace16.setFullYear(hoy.getFullYear() - 16);
+                const hace100 = new Date();
+                hace100.setFullYear(hoy.getFullYear() - 100);
+                if (fecha > hoy) return "La fecha no puede ser en el futuro.";
+                if (fecha < hace100) return "La fecha no puede ser mayor a 100 años.";
+                if (fecha > hace16) return "El usuario debe tener al menos 16 años.";
+                return true;
+              }
+            })}
+          />
+          {errors.fechaNacimiento && <p className={errCls}>{errors.fechaNacimiento.message}</p>}
+        </div>
+        <div>
           <label className={labelCls}>Rol</label>
           <select className={inputCls} defaultValue="" {...register('rol', { required: 'Selecciona un rol' })}>
             <option value="" disabled>Selecciona un rol</option>
