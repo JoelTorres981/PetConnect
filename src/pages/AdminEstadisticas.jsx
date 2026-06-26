@@ -84,7 +84,7 @@ export const AdminEstadisticas = () => {
                 const totalServicios   = Array.isArray(servicios) ? servicios.length : 0
                 const servActivos      = Array.isArray(servicios) ? servicios.filter(s => s.estado === 'ACTIVO').length   : 0
                 const servPendientes   = Array.isArray(servicios) ? servicios.filter(s => s.estado === 'PENDIENTE').length : 0
-                const servCompletados  = Array.isArray(servicios) ? servicios.filter(s => s.estado === 'COMPLETADO').length : 0
+                const servCompletados  = Array.isArray(servicios) ? servicios.filter(s => s.estado === 'FINALIZADO').length : 0
                 const servCancelados   = Array.isArray(servicios) ? servicios.filter(s => s.estado === 'CANCELADO').length  : 0
 
                 setDatos({
